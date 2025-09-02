@@ -1,0 +1,172 @@
+/* Consistent card layout for all main sections */
+.profile-section, .skills, .projects, .certificates {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79,70,229,0.08);
+    padding: 2rem;
+}
+/* Consistent card layout for main sections */
+.skills, .projects, .certificates {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79,70,229,0.08);
+    padding: 2rem;
+}
+:root{
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #3b82f6;
+    --accent-2: #7c3aed;
+    /* CTA gradient colors (change on dark mode via body.dark-mode) */
+    --cta-start: #2563eb; /* deep blue */
+    --cta-end: #3b82f6;   /* lighter blue */
+    --cta-shadow: rgba(59,130,246,0.12);
+    --glass: rgba(255,255,255,0.6);
+    --radius: 14px;
+    --max-width: 1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: linear-gradient(180deg,#eef2ff 0%, #fbfbff 100%);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+}
+
+/* Header + Nav */
+header{
+    background: linear-gradient(90deg,var(--accent), var(--accent-2));
+    color: #fff;
+    padding: 1.25rem 1rem;
+    box-shadow: 0 8px 30px rgba(59,130,246,0.08);
+    position:sticky;
+    top:0;
+    z-index:40;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.logo{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-weight:700}
+.nav-links{display:flex;gap:1rem;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.95);text-decoration:none;padding:.4rem .7rem;border-radius:8px;font-weight:600;opacity:.95}
+.nav-links a:hover{background:rgba(255,255,255,0.08)}
+.hero{padding:3.2rem 0 2rem 0}
+.hero-inner{display:flex;align-items:center;gap:2rem}
+.hero-title{flex:1}
+.hero-title h1{margin:0;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.05}
+.hero-title p{margin:.6rem 0;color:var(--muted);font-size:1.03rem}
+.hero-actions{display:flex;gap:.8rem;margin-top:1rem}
+.btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(59,130,246,0.12)}
+.btn.alt{background:transparent;border:1px solid rgba(17,24,39,0.06);color:#fff}
+
+/* Main layout */
+main{padding:2.5rem 0}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.06);padding:1.6rem;max-width:var(--max-width);margin:0 auto}
+.section{padding:1.25rem 0} /* sections span full width; inner .container centers content */
+.section h2{margin:0 0 .75rem 0;color:var(--accent-2);font-size:1.2rem}
+.section p{color:var(--muted);margin:0 0 1rem 0}
+
+/* grid for skills & projects */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skill{background:linear-gradient(180deg,#fbfdff,#eef6ff);padding:.9rem;border-radius:12px;text-align:center;font-weight:600;color:#0f1724}
+.project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.project{padding:1rem;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fbff)}
+
+/* certificates and gallery */
+.cert-images{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+/* ensure both certificates and gallery images share consistent sizing and behavior */
+.cert-images img, .gallery-grid img{
+    width:100%;
+    height:auto; /* let aspect-ratio control sizing */
+    aspect-ratio: 4 / 3;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+    transition:transform .28s ease, box-shadow .28s ease;
+}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
+.gallery-grid img:hover, .cert-images img:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(2,6,23,0.12)}
+
+/* profile lists */
+.profile-list{display:flex;flex-wrap:wrap;gap:.75rem}
+.profile-list li{list-style:none;background:linear-gradient(180deg,#fff,#f3f7ff);padding:.7rem 1rem;border-radius:10px;min-width:160px;color:var(--muted);box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+
+/* "See all certificates" area */
+.see-all{margin-top:1rem;text-align:center}
+.see-all p{margin:0 0 .5rem 0;color:var(--muted)}
+.see-all-btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:linear-gradient(90deg,var(--cta-start),var(--cta-end));color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 30px var(--cta-shadow);transition:transform .18s ease,opacity .12s}
+.see-all-btn:hover{transform:translateY(-3px);opacity:.98}
+
+/* contact */
+.contact-form{max-width:640px}
+input,textarea{width:100%;padding:.7rem;border-radius:10px;border:1px solid #e6eefb;margin-bottom:.6rem}
+button[type=submit]{background:var(--accent-2);color:#fff;padding:.7rem 1rem;border-radius:10px;border:0}
+
+/* footer */
+footer{background:transparent;padding:2rem 0;color:var(--muted)}
+.social-links{display:flex;gap:1rem;justify-content:center;margin-bottom:.6rem}
+.social-icon{width:36px;height:36px;filter:grayscale(.2);opacity:.95}
+
+/* utilities */
+.center{text-align:center}
+.muted{color:var(--muted)}
+
+/* floating dark mode toggle (modern) */
+#darkModeToggle{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:60;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:0;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    box-shadow:0 10px 30px rgba(59,130,246,0.18);
+    cursor:pointer;
+    transition:transform .18s ease,box-shadow .18s ease,background .25s ease;
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    overflow:hidden;
+}
+#darkModeToggle:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:4px}
+#darkModeToggle:active{transform:scale(.96)}
+/* hide raw text inside button and use pseudo-element for crisp icon swap */
+#darkModeToggle{color:transparent}
+#darkModeToggle::before{content:'🌙';color:#fff;font-size:20px;display:block;transform-origin:center;transition:transform .22s ease,opacity .22s}
+body.dark-mode #darkModeToggle{background:linear-gradient(135deg,#ffd166,#ff8a65);box-shadow:0 10px 30px rgba(255,138,101,0.18)}
+body.dark-mode #darkModeToggle::before{content:'☀️';transform:rotate(10deg) scale(1.02)}
+
+/* dark mode */
+body.dark-mode{background:linear-gradient(180deg,#0b1020 0%, #071226 100%);color:#e6eefb}
+body.dark-mode .card{background:rgba(255,255,255,0.03);box-shadow:0 6px 20px rgba(0,0,0,0.5)}
+body.dark-mode .skill{background:linear-gradient(180deg,#0b1220,#081024);color:#dbeafe}
+body.dark-mode .project{background:linear-gradient(180deg,#081024,#071022);color:#dbeafe}
+body.dark-mode input,body.dark-mode textarea{background:#071022;color:#e6eefb;border:1px solid rgba(255,255,255,0.06)}
+/* Strengths/Weaknesses/Hobbies cards adapt in dark mode */
+body.dark-mode .profile-list li{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.03));color:#dbeafe;box-shadow:none;border:1px solid rgba(255,255,255,0.03)}
+/* See-all button in dark mode */
+/* set CTA colors for dark mode via variables for consistent theming */
+body.dark-mode{--cta-start:#0b3a8a; --cta-end:#06294a; --cta-shadow: rgba(11,138,234,0.08)}
+
+/* responsive */
+@media (max-width: 900px){.grid{grid-template-columns:repeat(2,1fr)}.project-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 560px){.grid{grid-template-columns:1fr}.hero-inner{flex-direction:column}.hero-actions{flex-direction:column}.nav-links{display:none}.container{padding:0 1rem}}
+
+/* subtle animations */
+.fade-in{animation:fadeIn .9s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
