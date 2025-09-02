@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="desktop-mode-prompt" style="display:none;">For best experience, enable Desktop Mode in your browser.</div>
+    <div class="desktop-mode-prompt" style="display:none;">For best experience, view this site in landscape mode.</div>
     <header>
         <div class="container nav">
             <div class="brand">
@@ -168,6 +168,18 @@
     // dark mode toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.onclick = () => document.body.classList.toggle('dark-mode');
+
+    // show prompt when in portrait (encourage user to switch to landscape)
+    function checkPortraitPrompt(){
+        const prompt = document.querySelector('.desktop-mode-prompt');
+        if(window.innerHeight > window.innerWidth){
+            prompt.style.display = 'block';
+        } else {
+            prompt.style.display = 'none';
+        }
+    }
+    checkPortraitPrompt();
+    window.addEventListener('resize', checkPortraitPrompt);
 
     // contact form
     document.getElementById('contactForm').onsubmit = function(e){
