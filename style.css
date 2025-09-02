@@ -120,6 +120,9 @@ footer{background:transparent;padding:2rem 0;color:var(--muted)}
 .center{text-align:center}
 .muted{color:var(--muted)}
 
+/* landscape-only command */
+/* (removed landscape-only command styles) */
+
 /* floating dark mode toggle (modern) */
 #darkModeToggle{
     position:fixed;
