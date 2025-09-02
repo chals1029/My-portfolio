@@ -167,6 +167,35 @@ body.dark-mode{--cta-start:#0b3a8a; --cta-end:#06294a; --cta-shadow: rgba(11,138
 @media (max-width: 900px){.grid{grid-template-columns:repeat(2,1fr)}.project-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width: 560px){.grid{grid-template-columns:1fr}.hero-inner{flex-direction:column}.hero-actions{flex-direction:column}.nav-links{display:none}.container{padding:0 1rem}}
 
+/* Desktop portrait and tall windows — improve spacing and stacking when viewport is tall and relatively narrow */
+@media (min-width: 900px) and (orientation: portrait), (min-width:900px) and (max-width:1100px) {
+    /* center hero content and make the portrait image larger */
+    .hero-inner{flex-direction:column;align-items:center;text-align:center;gap:1.2rem}
+    .hero-media img{width:260px;height:260px;border-radius:14px}
+    .hero-title h1{font-size:2.4rem}
+
+    /* stack projects for better vertical flow */
+    .project-list{grid-template-columns:1fr}
+    .project{display:block}
+
+    /* make certificates and gallery a bit larger and balanced */
+    .cert-images{grid-template-columns:repeat(2,1fr);gap:1rem}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+    .gallery-grid img, .cert-images img{aspect-ratio:16/10}
+
+    /* relax badge minimum so list wraps cleanly in narrow columns */
+    .profile-list li{min-width:auto;padding:.6rem .9rem}
+
+    /* slightly increase section spacing */
+    .section{padding:1.8rem 0}
+    .container{padding:0 1.25rem}
+}
+
+/* Extra tall desktops: keep hero balanced with side media but center content when height >> width */
+@media (min-height:900px) and (max-width:900px){
+    .hero-inner{flex-direction:column;align-items:center;text-align:center}
+    .hero-media img{width:240px;height:240px}
+}
 /* subtle animations */
 .fade-in{animation:fadeIn .9s ease both}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
